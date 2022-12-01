@@ -1,3 +1,3 @@
-const Input = ``;
+const Input = `bgvyzdsv`;
 
 module.exports = { Input };
