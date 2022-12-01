@@ -12,7 +12,7 @@ function getMostCalories(inp) {
     }
   }
   elfs.sort((a, b) => b - a);
-  const topOne = elfs.slice(0, 1)[0];
+  const topOne = elfs[0];
   const sumOfTopThree = elfs.slice(0, 3).reduce((a, b) => a + b);
   console.log('Most calories: ', topOne);
   console.log('SumOfTopThree: ', sumOfTopThree);
