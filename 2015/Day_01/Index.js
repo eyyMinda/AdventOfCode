@@ -1,6 +1,6 @@
 const { Input } = require('./Input');
 
-function someFunction(inp) {
+function getFloor(inp) {
   let floor = 0;
   let basementChecked = [false, 0];
   for (let i = 0; i < inp.length; i++) {
@@ -14,4 +14,4 @@ function someFunction(inp) {
   console.log('basement first time: ', basementChecked[1]);
 }
 
-someFunction(Input);
+getFloor(Input);

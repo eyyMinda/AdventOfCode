@@ -1,6 +1,6 @@
 const { Input } = require('./Input');
 
-function someFunction(inp) {
+function directionsForSanta(inp) {
   let map = {};
   let cord = [0, 0];
   let robCord = [0, 0];
@@ -29,4 +29,4 @@ function someFunction(inp) {
   console.log('Houses with presents: ', Object.values(map).reduce((a, b) => a + b, 0));
 }
 
-someFunction(Input);
+directionsForSanta(Input);

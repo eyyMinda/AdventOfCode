@@ -1,6 +1,6 @@
 const { Input } = require('./Input');
 
-function someFunction(inp) {
+function countAmountNeeded(inp) {
   const initial = inp.split('\n');
   let totalPaper = 0;
   let totalRibbon = 0;
@@ -18,4 +18,4 @@ function someFunction(inp) {
   console.log('totalRibbon: ', totalRibbon);
 }
 
-someFunction(Input);
+countAmountNeeded(Input);
