@@ -1,4 +1,4 @@
-const dayOneInput = `6110
+const Input = `6110
 2550
 6915
 5699
@@ -2248,4 +2248,4 @@ const dayOneInput = `6110
 3329
 5404`;
 
-module.exports = { dayOneInput };
+module.exports = { Input };

@@ -4,7 +4,16 @@
   "description": "",
   "type": "commonjs",
   "scripts": {
-    "day1": "nodemon Day_1/index.js"
+    "day1": "nodemon Day_1/Index.js",
+    "day2": "nodemon Day_2/Index.js",
+    "day3": "nodemon Day_3/Index.js",
+    "day4": "nodemon Day_4/Index.js",
+    "day5": "nodemon Day_5/Index.js",
+    "day6": "nodemon Day_6/Index.js",
+    "day7": "nodemon Day_7/Index.js",
+    "day8": "nodemon Day_8/Index.js",
+    "day9": "nodemon Day_9/Index.js",
+    "day10": "nodemon Day_10/Index.js"
   },
   "keywords": [],
   "author": "",
