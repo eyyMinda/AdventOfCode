@@ -1,4 +1,30 @@
-const { Input } = require('./Input');
+const { Input, Test } = require('./Input');
+const data = read(Input);
+const grid = [];
+
+function run(inp, part) {
+  initGrid();
+  const [instructions, values] = inp;
+
+  for (let i = 0; i < instructions.length; i++) {
+    let a = values[i][0].x
+    let b = values[i][0].y
+    let c = values[i][1].x
+    let d = values[i][1].y
+    const action = instructions[i];
+    lights(part, action, a, b, c, d);
+  }
+  if (part === 1) {
+    let turnedOn = grid.flat().filter(val => val === true).length
+    console.log(turnedOn);
+  } else {
+    let brightness = grid.flat().reduce((a, b) => a + b);
+    console.log(brightness);
+  }
+}
+
+run(data, 1); //1 for part1
+run(data, 2); //2 for part2
 
 function read(inp) {
   let instructions = [];
@@ -24,9 +50,6 @@ function read(inp) {
   return [instructions, values];
 }
 
-const grid = [];
-const data = read(Input);
-
 function initGrid() {
   let rows = 1000;
   let cols = 1000;
@@ -35,26 +58,7 @@ function initGrid() {
   }
 }
 
-function part1(inp) {
-  initGrid();
-  const [instructions, values] = inp;
-
-  for (let i = 0; i < instructions.length; i++) {
-    const step = values[i];
-    let a = step[0].x
-    let b = step[0].y
-    let c = step[1].x
-    let d = step[1].y
-    const action = instructions[i];
-    lights(action, a, b, c, d);
-  }
-
-  let turnedOn = grid.flat().filter(val => val === true).length
-  return console.log(turnedOn);
-}
-
-
-function lights(action, a, b, c, d) {
+function lights(part, action, a, b, c, d) {
   let rowsStart = a;
   let rowsEnd = c;
   let colsStart = b;
@@ -62,24 +66,19 @@ function lights(action, a, b, c, d) {
 
   for (let x = rowsStart; x <= rowsEnd; x++) {
     for (let y = colsStart; y <= colsEnd; y++) {
-      switch (action) {
-        case 'on': grid[x][y] = true;
-        case 'off': grid[x][y] = false;
-        case 'toggle': grid[x][y] = !grid[x][y];
+      if (part === 1) {
+        switch (action) {
+          case 'on': grid[x][y] = true; break;
+          case 'off': grid[x][y] = false; break;
+          case 'toggle': grid[x][y] = !grid[x][y]; break;
+        }
+      } else {
+        switch (action) {
+          case 'on': grid[x][y]++; break;
+          case 'off': grid[x][y]--; break;
+          case 'toggle': grid[x][y] += 2; break;
+        }
       }
     }
   }
 }
-
-
-
-function part2(inp) {
-
-}
-part1(data);
-part2(data);
-
-//if one func
-// solution(Test, 1);
-// solution(Input, 1);
-// solution(Input, 2);
