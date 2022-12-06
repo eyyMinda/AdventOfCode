@@ -1,3 +1,5 @@
+const Test = `qjhvhtzxzqqjkmpb`;
+
 const Input = `rthkunfaakmwmush
 qxlnvjguikqcyfzt
 sleaoasjspnjctqt
@@ -999,4 +1001,4 @@ mfifrjamczjncuym
 otmgvsykuuxrluky
 oiuroieurpyejuvm`;
 
-module.exports = { Input };
+module.exports = { Input, Test };
