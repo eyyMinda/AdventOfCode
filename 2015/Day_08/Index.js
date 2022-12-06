@@ -1,9 +1,19 @@
 const { Input } = require('./Input');
 
-function someFunction(inp) {
-  console.log(inp)
+const lines = Input.trim().split('\n');
 
-  console.log('something: ', 123);
+function part1() {
+
 }
 
-someFunction(Input);
+function part2() {
+
+}
+
+part1();
+part2();
+
+//if one func
+// solution(Test, 1);
+// solution(Input, 1);
+// solution(Input, 2);

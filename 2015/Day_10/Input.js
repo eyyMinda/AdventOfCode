@@ -1,3 +1,4 @@
+const Test = ``;
 const Input = ``;
 
-module.exports = { Input };
+module.exports = { Input, Test };
