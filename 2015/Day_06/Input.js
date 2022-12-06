@@ -1,4 +1,4 @@
-const Test = ``;
+const Test = `toggle 0,0 through 999,999`;
 const Input = `turn on 887,9 through 959,629
 turn on 454,398 through 844,448
 turn off 539,243 through 559,965
