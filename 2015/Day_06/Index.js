@@ -75,7 +75,7 @@ function lights(part, action, a, b, c, d) {
       } else {
         switch (action) {
           case 'on': grid[x][y]++; break;
-          case 'off': grid[x][y]--; break;
+          case 'off': grid[x][y] > 0 ? grid[x][y]-- : null; break;
           case 'toggle': grid[x][y] += 2; break;
         }
       }
