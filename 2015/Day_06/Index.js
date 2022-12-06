@@ -59,10 +59,8 @@ function initGrid() {
 }
 
 function lights(part, action, a, b, c, d) {
-  let rowsStart = a;
-  let rowsEnd = c;
-  let colsStart = b;
-  let colsEnd = d;
+  let rowsStart = a, rowsEnd = c;
+  let colsStart = b, colsEnd = d;
 
   for (let x = rowsStart; x <= rowsEnd; x++) {
     for (let y = colsStart; y <= colsEnd; y++) {
