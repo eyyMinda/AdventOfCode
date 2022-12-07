@@ -2,7 +2,7 @@ const { Input, Test } = require('./Input');
 
 const sum = arr => arr.reduce((a, b) => a + b, 0);
 
-console.log(run(Input));
+run(Input);
 
 function read(inp) {
   const dirs = {};
@@ -34,7 +34,7 @@ function run(inp) {
 
   const sum = findSumOf100k(dirs); //part 1 (1427048)
   const dirToDelete = findSmallest(dirs); //part 2 (2940614)
-  return [sum, dirToDelete];
+  console.log([sum, dirToDelete]);
 };
 
 function findSumOf100k(dirs) {
