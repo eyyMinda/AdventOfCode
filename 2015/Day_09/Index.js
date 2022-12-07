@@ -1,4 +1,4 @@
-const { Input } = require('./Input');
+const { Input, Test } = require('./Input');
 
 const lines = Input.trim().split('\n');
 
