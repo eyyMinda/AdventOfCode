@@ -1,5 +1,5 @@
 const { Input, Test } = require('./Input');
-const { range, rangeFill1 } = require('../../utils/read');
+const { range, rangeFill1 } = require('../../utils');
 
 const lines = Input.trim().split('\n').map((line) => {
   const [cmd, num] = line.split(' ');
