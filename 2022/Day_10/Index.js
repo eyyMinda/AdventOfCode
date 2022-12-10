@@ -1,7 +1,9 @@
 const { Input, Test } = require('./Input');
+const { range, rangeFill1 } = require('../../utils/read');
+
 const lines = Input.trim().split('\n').map((line) => {
-  const parts = line.split(' ');
-  return { cmd: parts[0], num: Number(parts[1]) };
+  const [cmd, num] = line.split(' ');
+  return { cmd, num: Number(num) };
 });;
 
 //part 1
@@ -24,11 +26,10 @@ function part1() {
   }
   console.log(ans)
 }
-const range = (size, startAt = 0) => [...Array(size).keys()].map(i => i + startAt);
-const rangeArrOf1 = size => [...Array(size).keys()].fill([1]);
+
 //part 2
 let currX = 1, op = 0, ans2 = 0;
-let row = 0, col = 0, track = rangeArrOf1(241);
+let row = 0, col = 0, track = rangeFill1(241);
 
 function part2() {
   for (let line of lines) {
