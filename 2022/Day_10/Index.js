@@ -50,8 +50,8 @@ function part2() {
     for (row of range(6)) {
       let counter = row * 40 + col + 1;
       if (Math.abs(track[counter - 1] - col) <= 1) {
-        ans2[row][col] = '#';
-      } else { ans2[row][col] = ' ' }
+        ans2[row][col] = '##';
+      } else { ans2[row][col] = '  ' }
     }
   }
   ans2.forEach((line) => console.log(line.join('')));
