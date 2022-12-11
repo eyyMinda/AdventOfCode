@@ -2,7 +2,8 @@ const { Input, Test } = require('./Input');
 
 const lines = Input.trim().split('\n');
 
-const monkeys = [];
+const monkeys = {};
+let monkeyCount = 0;
 let monkey = {};
 for (let line of lines) {
   if (line.startsWith('Monkey')) {
@@ -18,12 +19,11 @@ for (let line of lines) {
     monkey['true'] = Number(line.split('If true: throw to monkey ')[1]);
   } else if (line.trim().startsWith('If f')) {
     monkey['false'] = Number(line.split('If false: throw to monkey ')[1]);
-    monkeys.push(monkey);
+    monkeys[monkeyCount] = monkey;
     monkey = {};
+    monkeyCount++;
   }
 };
-// console.log(monkeys);
-
 
 function solver(part) {
   const part1 = part === 1;
@@ -67,4 +67,4 @@ function solver(part) {
   return v[0] * v[1];
 }
 
-console.log(solver(2)); //part 1: 1; part 2: 2; one at a time
+console.log(solver(1)); //part 1: 1; part 2: 2; one at a time
