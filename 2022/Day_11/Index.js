@@ -31,40 +31,38 @@ function solver(part) {
 
   const monkeyKeys = Object.keys(monkeys);
   const monkeyInspection = {};
-  monkeyKeys.forEach((key) => (monkeyInspection[key] = 0));
+  monkeyKeys.forEach((key) => monkeyInspection[key] = 0);
 
   let modul = 1;
-  !part1 ? monkeyKeys.forEach((key) => (modul *= monkeys[key].testVal)) : null;
+  !part1 ? monkeyKeys.forEach((key) => modul *= monkeys[key].testVal) : null;
 
-  for (let i = 0; i < rounds; i++) {
-    for (let j = 0; j < monkeyKeys.length; j++) {
+  for (let r = 0; r < rounds; r++) {
+    for (let i = 0; i < monkeyKeys.length; i++) {
       const monkeyItems = {};
-      monkeyKeys.forEach((key) => (monkeyItems[key] = []));
+      monkeyKeys.forEach((key) => monkeyItems[key] = []);
 
-      monkeys[j].items.forEach((item) => {
-        monkeyInspection[j]++;
-        let newValue = monkeys[j].op(item);
+      monkeys[i].items.forEach((item) => {
+        monkeyInspection[i]++;
+        let newValue = monkeys[i].op(item);
         // Bored
         part1 ? newValue = Math.floor(newValue / 3) :
           newValue = newValue % modul;
         // Throw
-        monkeys[j].test(newValue) ?
-          monkeyItems[monkeys[j].true].push(newValue) :
-          monkeyItems[monkeys[j].false].push(newValue);
+        monkeys[i].test(newValue) ?
+          monkeyItems[monkeys[i].true].push(newValue) :
+          monkeyItems[monkeys[i].false].push(newValue);
       });
 
       monkeyKeys.forEach((key) => {
-        if (key === monkeyKeys[j]) {
-          monkeys[key].items = [];
-        } else {
+        key === monkeyKeys[i] ?
+          monkeys[key].items = [] :
           monkeys[key].items = [...monkeys[key].items, ...monkeyItems[key]];
-        }
       });
     }
   }
 
-  const v = Object.values(monkeyInspection).sort((a, b) => b - a);
-  return v[0] * v[1];
+  const val = Object.values(monkeyInspection).sort((a, b) => b - a);
+  return val[0] * val[1];
 }
 
-console.log(solver(1)); //part 1: 1; part 2: 2; one at a time
+console.log(solver(2)); //part 1: 1; part 2: 2; one at a time
