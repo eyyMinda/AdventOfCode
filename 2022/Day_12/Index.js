@@ -16,11 +16,11 @@ function read() {
   return res;
 }
 
-const pointToInt = (x, y) => y * 1e3 + x;
+const pointToInt = (x, y) => y * 1000 + x;
 const intToPoint = int => {
   const point = { y: 0, x: 0 };
-  point.y = Math.floor(int / 1e3);
-  point.x = int % 1e3;
+  point.y = Math.floor(int / 1000);
+  point.x = int % 1000;
   return point;
 };
 
