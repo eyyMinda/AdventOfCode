@@ -1,6 +1,6 @@
 const { Input, Test } = require('./Input');
 
-const lines = Input.trim().split('\n');
+const lines = Test.trim().split('\n');
 
 function part1() {
 
@@ -14,6 +14,6 @@ part1();
 part2();
 
 //if one func
-// solution(Test, 1);
-// solution(Input, 1);
-// solution(Input, 2);
+// solver(Test, 1);
+// solver(Input, 1);
+// solver(Input, 2);
