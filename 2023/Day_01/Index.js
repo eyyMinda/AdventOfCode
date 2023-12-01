@@ -14,39 +14,43 @@ const buildNumber = (digits) => {
 };
 
 const convertStringsToNumbers = (line) => {
-  const wordToDigit = {
-    one: '1',
-    two: '2',
-    three: '3',
-    four: '4',
-    five: '5',
-    six: '6',
-    seven: '7',
-    eight: '8',
-    nine: '9',
-    zero: '0',
-  };
-
-  let newLine = '';
-  let wordBuffer = '';
-
+  // console.log(line);
+  let newLine = "";
   for (let j = 0; j < line.length; j++) {
-    const currentChar = line[j].toLowerCase();
-
-    if (currentChar >= 'a' && currentChar <= 'z') {
-      // Accumulate characters to form a word
-      wordBuffer += currentChar;
-    } else {
-      // Check if we have a complete word in the buffer
-      if (wordToDigit[wordBuffer]) {
-        newLine += wordToDigit[wordBuffer];
-        wordBuffer = ''; // Reset the word buffer
-      } else if (isFinite(parseInt(currentChar, 10))) {
-        newLine += currentChar;
-      }
+    if (line[j] === "o" && line[j + 1] === "n" && line[j + 2] === "e") {
+      newLine += "1";
+    }
+    if (line[j] === "t" && line[j + 1] === "w" && line[j + 2] === "o") {
+      newLine += "2";
+    }
+    if (line[j] === "t" && line[j + 1] === "h" && line[j + 2] === "r" && line[j + 3] === "e" && line[j + 4] === "e") {
+      newLine += "3";
+    }
+    if (line[j] === "f" && line[j + 1] === "o" && line[j + 2] === "u" && line[j + 3] === "r") {
+      newLine += "4";
+    }
+    if (line[j] === "f" && line[j + 1] === "i" && line[j + 2] === "v" && line[j + 3] === "e") {
+      newLine += "5";
+    }
+    if (line[j] === "s" && line[j + 1] === "i" && line[j + 2] === "x") {
+      newLine += "6";
+    }
+    if (line[j] === "s" && line[j + 1] === "e" && line[j + 2] === "v" && line[j + 3] === "e" && line[j + 4] === "n") {
+      newLine += "7";
+    }
+    if (line[j] === "e" && line[j + 1] === "i" && line[j + 2] === "g" && line[j + 3] === "h" && line[j + 4] === "t") {
+      newLine += "8";
+    }
+    if (line[j] === "n" && line[j + 1] === "i" && line[j + 2] === "n" && line[j + 3] === "e") {
+      newLine += "9";
+    }
+    if (line[j] === "z" && line[j + 1] === "e" && line[j + 2] === "r" && line[j + 3] === "o") {
+      newLine += "0";
+    }
+    if (isFinite(parseInt(line[j], 10))) {
+      newLine += line[j];
     }
   }
-
   return newLine;
 };
 
