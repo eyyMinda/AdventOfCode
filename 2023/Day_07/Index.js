@@ -48,20 +48,17 @@ const evaluateHandWithoutJoker = (handArray) => {
   }, {});
 
   const values = Object.values(cardCounts);
-  const isFiveOfAKind = values.includes(5);
-  const isFourOfAKind = values.includes(4);
-  const isFullHouse = values.includes(3) && values.includes(2);
-  const isThreeOfAKind = values.includes(3);
   const pairCount = values.filter((count) => count === 2).length;
+  const cards = handArray;
 
-  if (isFiveOfAKind) return { type: 'fiveOfAKind', cards: handArray }
-  if (isFourOfAKind) return { type: 'fourOfAKind', cards: handArray }
-  if (isFullHouse) return { type: 'fullHouse', cards: handArray }
-  if (isThreeOfAKind) return { type: 'threeOfAKind', cards: handArray }
-  if (pairCount === 2) return { type: 'twoPair', cards: handArray }
-  if (pairCount === 1) return { type: 'onePair', cards: handArray }
+  if (values.includes(5)) return { type: 'fiveOfAKind', cards };
+  if (values.includes(4)) return { type: 'fourOfAKind', cards };
+  if (values.includes(3) && values.includes(2)) return { type: 'fullHouse', cards };
+  if (values.includes(3)) return { type: 'threeOfAKind', cards };
+  if (pairCount === 2) return { type: 'twoPair', cards };
+  if (pairCount === 1) return { type: 'onePair', cards };
 
-  return { type: 'highCard', cards: handArray };
+  return { type: 'highCard', cards };
 }
 
 const compareHands = (handA, handB) => {
@@ -106,8 +103,7 @@ const processInput = (hands) => {
     };
   })
 
-  const rankedHands = rankHands(sortedHands);
-  return rankedHands;
+  return rankHands(sortedHands);
 }
 
 function solution(input) {
@@ -117,10 +113,10 @@ function solution(input) {
 
 
 const res = {
-  Test: solution(Test, 1),
-  Part1: solution(Input, 1),
-  Test2: part2 = true && solution(Test, 2),
-  Part2: part2 = true && solution(Input, 2)
+  Test: solution(Test),
+  Part1: solution(Input),
+  Test2: part2 = true && solution(Test),
+  Part2: part2 = true && solution(Input)
 }
 
 console.table(res);
