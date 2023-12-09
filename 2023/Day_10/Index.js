@@ -1,19 +1,22 @@
 const { Input, Test } = require('./Input');
+let part2;
 
-const lines = Input.trim().split('\n');
+const processInput = (input) => {
+  const values = input.trim().split('\n')
 
-function part1() {
-
+  return values;
 }
 
-function part2() {
-
+function solution(input) {
+  const values = processInput(input);
+  return values;
 }
 
-part1();
-part2();
+const res = {
+  Test: solution(Test),
+  Part1: solution(Input),
+  Test2: part2 = true && solution(Test),
+  Part2: part2 = true && solution(Input)
+}
 
-//if one func
-// solution(Test, 1);
-// solution(Input, 1);
-// solution(Input, 2);
+console.table(res);
