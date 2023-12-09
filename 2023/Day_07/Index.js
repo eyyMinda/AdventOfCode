@@ -1,13 +1,45 @@
 const { Input, Test } = require('./Input');
 
+let part2;
+
 const cards = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
+const p2Cards = ['A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J'];
 const handTypes = ['fiveOfAKind', 'fourOfAKind', 'fullHouse', 'threeOfAKind', 'twoPair', 'onePair', 'highCard'];
 
-const getCardStrength = (card) => cards.indexOf(card);
+const getCardStrength = (card) => (part2 ? p2Cards : cards).indexOf(card);
 
 const evaluateHandType = (hand) => {
   const handArray = hand.cards.map((card) => [card, getCardStrength(card)]);
 
+  handArray.sort((a, b) => b[1] - a[1]);
+
+  if (part2 && handArray.some((card) => card[0] === 'J')) {
+    return evaluateHandWithJoker(handArray);
+  } else {
+    return evaluateHandWithoutJoker(handArray);
+  }
+}
+
+const evaluateHandWithJoker = (handArray) => {
+  let bestHand = { type: 'highCard', cards: handArray };
+
+  for (const card of cards) {
+    if (card === 'J') continue;
+
+    const modifiedHand = handArray
+      .map(([c, s]) => (c === 'J' ? [card, getCardStrength(card)] : [c, s]))
+      .sort((a, b) => b[1] - a[1])
+    const currentHand = evaluateHandWithoutJoker(modifiedHand);
+
+    if (handTypes.indexOf(currentHand.type) < handTypes.indexOf(bestHand.type)) {
+      bestHand = currentHand;
+    }
+  }
+
+  return bestHand;
+}
+
+const evaluateHandWithoutJoker = (handArray) => {
   handArray.sort((a, b) => b[1] - a[1]);
 
   const cardCounts = handArray.reduce((counts, [_, strength]) => {
@@ -78,7 +110,7 @@ const processInput = (hands) => {
   return rankedHands;
 }
 
-function solution(input, part) {
+function solution(input) {
   const hands = processInput(input);
   return hands.reduce((total, hand) => total + hand.bid * hand.rank, 0);
 }
@@ -86,9 +118,9 @@ function solution(input, part) {
 
 const res = {
   Test: solution(Test, 1),
-  // Part1: solution(Input, 1),
-  // Test2: solution(Test, 2),
-  // Part2: solution(Input, 2)
+  Part1: solution(Input, 1),
+  Test2: part2 = true && solution(Test, 2),
+  Part2: part2 = true && solution(Input, 2)
 }
 
 console.table(res);
