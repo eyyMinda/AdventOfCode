@@ -63,7 +63,17 @@
     "2023-22": "nodemon 2023/Day_22/Index.js",
     "2023-23": "nodemon 2023/Day_23/Index.js",
     "2023-24": "nodemon 2023/Day_24/Index.js",
-    "2023-25": "nodemon 2023/Day_25/Index.js"
+    "2023-25": "nodemon 2023/Day_25/Index.js",
+    "2024-1": "nodemon 2024/Day_01/Index.js",
+    "2024-2": "nodemon 2024/Day_02/Index.js",
+    "2024-3": "nodemon 2024/Day_03/Index.js",
+    "2024-4": "nodemon 2024/Day_04/Index.js",
+    "2024-5": "nodemon 2024/Day_05/Index.js",
+    "2024-6": "nodemon 2024/Day_06/Index.js",
+    "2024-7": "nodemon 2024/Day_07/Index.js",
+    "2024-8": "nodemon 2024/Day_08/Index.js",
+    "2024-9": "nodemon 2024/Day_09/Index.js",
+    "2024-10": "nodemon 2024/Day_10/Index.js"
   },
   "keywords": [],
   "author": "",
